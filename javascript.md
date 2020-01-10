@@ -1,9 +1,11 @@
 JavaScript Questions
 
 ## Undefined Vs Not Defined
+```javascript
 var x; 
 console.log(x) // x is undefined.
 console.log(y) // y is not defined.
+```
 
 ## Drawback of declaring methods directly in JavaScript objects?
 They are very memory inefficient. When you do that, a new copy of the method is created for each instance of an object.
@@ -25,6 +27,7 @@ function mul (x) {
 }
 
 ## How to empty an array in JavaScript?
+```javascript
 // 1
 arrayList = [];
 // 2
@@ -35,14 +38,16 @@ arrayList.splice(0, arrayList.length);
 while(arrayList.length) {
   arrayList.pop();
 }
-
+```
 ## How to check if an object is an array or not?
+```javascript
 if(Object.prototype.toString.call(arrayList) === '[object Array]') {
   console.log('Array!');
 }
+```
 
 ## What will be the output of the following code?
-```
+```javascript
 var x = 1;
 var output = (function() {
   delete x;
@@ -54,7 +59,7 @@ console.log(output);
 The code above will output 1 as output. delete operator is used to delete a property from an object. Here x is not an object it's global variable of type number.
 
 ## What will be the output of the following code?
-```
+```javascript
 var Employee = {
   company: 'xyz'
 }
@@ -65,7 +70,7 @@ console.log(emp1.company);
 The code above will output xyz as output. Here emp1 object got company as prototype property. delete operator doesn't delete prototype property.
 
 ## What will be the output of the following code?
-```
+```javascript
 var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
 delete trees[3];
 console.log(trees.length);
@@ -73,7 +78,7 @@ console.log(trees.length);
 The code above will output 5 as output. When we used delete operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using delete operator.
 
 ## What will be the output of the following code?
-```
+```javascript
 var bar = true;
 console.log(bar + 0);   
 console.log(bar + "xyz");  
@@ -89,14 +94,14 @@ The code above will output 1, "truexyz", 2, 1 as output. Here's a general guidel
 * String + String -> Concatenation
 
 ## What will be the output of the following code?
-```
+```javascript
 var z = 1, y = z = typeof y;
 console.log(y);
 ```
 Output: undefined
 
 ## What is the difference between declaring a function in the formats listed below?
-```
+```javascript
 var foo = function() {
   // Some code
 }
@@ -109,7 +114,7 @@ The main difference is that function foo is defined at run-time and is called a 
 
 
 ## What will be the output of the following code?
-```
+```javascript
 var salary = "1000$";
 
 (function () {
@@ -128,17 +133,17 @@ The typeof operator checks if a value belongs to one of the seven basic types: n
 instanceof is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left.
 
 ## Calculate the length of the associative array
-```
+```javascript
 var counterArray = {
   A : 3,
   B : 4
 };
 counterArray["C"] = 1;
 ```
+```javascript
 // 1
 Object.keys(counterArray).length;
 // 2
-```
 function getLength(object) {
   var count = 0;
   for(key in object) {
@@ -147,11 +152,12 @@ function getLength(object) {
   }
   return count;
 }
-```
 // 3
 Object.getOwnPropertyNames(counterArray).length; // Output 3
+```
 
 ## Difference between Function, Method and Constructor calls in JavaScript.
+```javascript
 // function
 function helloWorld(name) {
   return "hello world, " + name;
@@ -168,6 +174,7 @@ function Employee(name, age) {
   this.name = name;
   this.age = age;
 }
+```
 
 ## What are Service Workers and when can you use them?
 It’s a technology that allows your web application to use cached resources first, and provide default experience offline, before getting more data from the network later. This principle is commonly known as Offline First.
@@ -200,7 +207,7 @@ NaN stands for “not a number.” and it can break your table of numbers when i
 
 ## How we can prevent modification of object in JavaScript ?.
 1: Prevent extensions :
-```
+```javascript
 var employee = {
   name: "Nishant"
 };
@@ -215,7 +222,7 @@ employee.name = "John"; // work fine
 employee.age = 24; // fails silently unless it's inside the strict mode
 ```
 2: Seal :
-```
+```javascript
 var employee = {
   name: "Nishant"
 };
@@ -232,7 +239,7 @@ delete employee.name // fails silently unless it's in strict mode
 employee.age = 30; // fails silently unless in strict mode
 ```
 3: Freeze 
-```
+```javascript
 var employee = {
   name: "Nishant"
 };
