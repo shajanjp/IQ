@@ -1,4 +1,4 @@
-JavaScript Questions
+# JavaScript Questions
 
 ## Undefined Vs Not Defined
 ```javascript
